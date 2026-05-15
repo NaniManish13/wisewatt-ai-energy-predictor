@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WiseWatt AI Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>WiseWatt – AI Energy Predictor</h1>
+
+    <form action="/predict" method="POST">
+
+        <input type="number" step="any" name="temperature" placeholder="Temperature" required>
+
+        <input type="number" step="any" name="humidity" placeholder="Humidity" required>
+
+        <input type="number" step="any" name="usage_hours" placeholder="Usage Hours" required>
+
+        <input type="number" step="any" name="power_rating" placeholder="Power Rating" required>
+
+        <select name="appliance">
+            <option>AC</option>
+            <option>Refrigerator</option>
+            <option>Washing Machine</option>
+            <option>Fan</option>
+            <option>Heater</option>
+            <option>Television</option>
+        </select>
+
+        <button type="submit">Predict Energy</button>
+
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <h2>Predicted Energy Consumption: {{ prediction }} kWh</h2>
+            <h3>Model MAE: {{ mae }}</h3>
+            <p>{{ suggestion }}</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

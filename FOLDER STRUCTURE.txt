@@ -1,0 +1,11 @@
+wisewatt-ai-energy-predictor/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── energy_consumption.csv
+├── templates/
+│   └── index.html
+├── static/
+│   └── style.css
+└── model/
